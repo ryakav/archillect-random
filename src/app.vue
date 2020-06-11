@@ -47,8 +47,8 @@ export default {
     padding-top: 20px;
   }
   #image {
-    max-height: 75vh;
-    max-width: 75vw;
+    max-height: 70vh;
+    max-width: 70vw;
     padding-top: 30px; 
     display: block;
     margin-left: auto;

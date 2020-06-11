@@ -3,9 +3,14 @@
     <a href="https://archillect.com/">
       <img id="logo" src="logo.svg"> 
     </a> 
-    <br><br>
-    <a :href="'https://archillect.com/' + id"> {{id}} </a> 
+    <br>
+    <br>
+    <a id="id" :href="'https://archillect.com/' + id"> {{id}} </a> 
     <img id="image" :src="image"/>
+    <br>
+    <a href="https://github.com/ryan-uk/archillect-random"> 
+      <img id="github" src="github.png" alt="github">
+    </a>
   </div>
 </template>
 
@@ -51,6 +56,13 @@ export default {
   }
   #app {
     text-align: center;
+  }
+  #id {
     font-size: 18px;
+  }
+  #github {
+    padding-top: 20px;
+    height: 25px;
+    width: 25px;
   }
 </style>

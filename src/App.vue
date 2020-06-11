@@ -1,28 +1,56 @@
-<template>
+<template> 
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <a href="https://archillect.com/">
+      <img id="logo" src="logo.svg"> 
+    </a> 
+    <br><br>
+    <a :href="'https://archillect.com/' + id"> {{id}} </a> 
+    <img id="image" :src="image"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data: function() { 
+    return {
+      image: undefined,
+         id: undefined  
+    }
+  },
+  mounted() {
+    fetch( '/image' )
+    .then( data => data.json() ) 
+    .then( data => {
+      this.image = data.url 
+      this.id = data.id 
+    })
+    .catch( console.log )
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  a {
+    color: black;
+  }
+  #logo {
+    padding-top: 20px;
+  }
+  #image {
+    max-height: 75vh;
+    max-width: 75vw;
+    padding-top: 30px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+  }
+  #app {
+    text-align: center;
+    font-size: 18px;
+  }
 </style>
